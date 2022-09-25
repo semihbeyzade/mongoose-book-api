@@ -1,14 +1,26 @@
 import express from "express";
 import mongoose from "mongoose";
+import * as dotenv from 'dotenv';
+dotenv.config();
 
-mongoose.connect('mongodb://localhost/bookapi')
+import {Book} from "./models/Book.js";
+
+const {DB_URL, DB_PORT, DB_NAME, PORT} = process.env
+
+mongoose.connect(`mongodb://${DB_URL}:${DB_PORT}/${DB_NAME}`)
+
 const app = express();
-const port = 3459;
 
 app.get('/', (req,res) => {
     res.send(`<h1>Book API</h1>`)
 });
 
-app.listen(port, () => {
-    console.log(`listening on port: http://localhost:${port}`);
+app.post('/book', (req,res) => {
+    res.status(200).json({
+        "message": "book created"
+    })
+});
+
+app.listen(PORT, () => {
+    console.log(`listening on port`, PORT);
 })
