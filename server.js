@@ -1,5 +1,7 @@
 import express from "express";
+import mongoose from "mongoose";
 
+mongoose.connect('mongodb://localhost/bookapi')
 const app = express();
 const port = 3459;
 
