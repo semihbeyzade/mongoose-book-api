@@ -5,7 +5,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "import": "node cli/importBooks.js"
   },
   "keywords": [],
   "author": "",
@@ -14,6 +15,7 @@
     "nodemon": "^2.0.20"
   },
   "dependencies": {
+    "axios": "^0.27.2",
     "dotenv": "^16.0.2",
     "express": "^4.18.1",
     "mongoose": "^6.6.1"
